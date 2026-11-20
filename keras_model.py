@@ -36,9 +36,12 @@ def check_equivalence(torch_model, keras_model, valid_features, tolerance=1e-5):
     """Report worst absolute error on the SAME validation rows."""
     torch_model.eval()
     with torch.no_grad():
-        torch_predictions = torch_model(
-            torch.as_tensor(valid_features, dtype=torch.float32)
-        ).cpu().numpy().reshape(-1)
+        torch_predictions = (
+            torch_model(torch.as_tensor(valid_features, dtype=torch.float32))
+            .cpu()
+            .numpy()
+            .reshape(-1)
+        )
     keras_predictions = np.asarray(
         keras_model.predict(valid_features, verbose=0)
     ).reshape(-1)

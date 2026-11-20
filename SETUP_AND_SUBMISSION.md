@@ -50,6 +50,7 @@ python compare.py
 python -m ruff format .
 python -m ruff format --check .
 python -m ruff check .
+python -m ruff check . --fix
 python -m pytest
 ```
 

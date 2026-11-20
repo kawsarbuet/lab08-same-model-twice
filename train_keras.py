@@ -1,7 +1,7 @@
 """Keras compile/fit training on the EXACT Lab 07 prepared arrays."""
 
-from pathlib import Path
 import time
+from pathlib import Path
 
 import keras
 import matplotlib.pyplot as plt
@@ -99,10 +99,12 @@ def main():
     plot_keras_curves(history, best_epoch, REPORTS / "learning_curves_keras.png")
     val_predictions = np.asarray(model.predict(data.x_valid, verbose=0)).reshape(-1)
     test_predictions = np.asarray(model.predict(data.x_test, verbose=0)).reshape(-1)
-    print(f"Best epoch: {best_epoch}; validation MAE: "
-          f"{mean_absolute_error(data.y_valid, val_predictions):.4f}; "
-          f"test MAE: {mean_absolute_error(data.y_test, test_predictions):.4f}; "
-          f"seconds: {seconds:.2f}")
+    print(
+        f"Best epoch: {best_epoch}; validation MAE: "
+        f"{mean_absolute_error(data.y_valid, val_predictions):.4f}; "
+        f"test MAE: {mean_absolute_error(data.y_test, test_predictions):.4f}; "
+        f"seconds: {seconds:.2f}"
+    )
     print("Saved reports/history_keras.csv and reports/learning_curves_keras.png")
 
 

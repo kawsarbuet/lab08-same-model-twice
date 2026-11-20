@@ -2,7 +2,6 @@
 
 import numpy as np
 import pytest
-import torch
 from keras import models
 from sklearn.metrics import mean_squared_error
 
@@ -80,7 +79,11 @@ def test_keras_save_reload_same_predictions(tmp_path):
 def test_best_weights_restored(tmp_path):
     data = prepare_data(seed=17, n=120)
     model, history, best_epoch, _ = train_keras(
-        data, seed=17, epochs=5, hidden=8, batch_size=16,
+        data,
+        seed=17,
+        epochs=5,
+        hidden=8,
+        batch_size=16,
         checkpoint=tmp_path / "best.keras",
     )
     assert len(history) == 5
@@ -94,12 +97,20 @@ def test_best_weights_restored(tmp_path):
 def test_same_seed_repeats_short_run(tmp_path):
     data = prepare_data(seed=31, n=120)
     first, h1, _, _ = train_keras(
-        data, seed=31, epochs=3, hidden=8, batch_size=16,
+        data,
+        seed=31,
+        epochs=3,
+        hidden=8,
+        batch_size=16,
         checkpoint=tmp_path / "first.keras",
     )
     pred1 = first.predict(data.x_valid, verbose=0)
     second, h2, _, _ = train_keras(
-        data, seed=31, epochs=3, hidden=8, batch_size=16,
+        data,
+        seed=31,
+        epochs=3,
+        hidden=8,
+        batch_size=16,
         checkpoint=tmp_path / "second.keras",
     )
     np.testing.assert_allclose(

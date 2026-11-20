@@ -19,9 +19,7 @@ COLUMNS = ["framework", "seed", "best_epoch", "validation_mae", "test_mae", "sec
 def pytorch_run(data, seed, epochs=EPOCHS, hidden=HIDDEN):
     """Train original Lab 07 loop with precisely the main settings."""
     seed_everything(seed)
-    train_loader, valid_loader, _ = make_loaders(
-        data, batch_size=BATCH_SIZE, seed=seed
-    )
+    train_loader, valid_loader, _ = make_loaders(data, batch_size=BATCH_SIZE, seed=seed)
     network = BikeNet(data.x_train.shape[1], hidden=hidden)
     start = time.perf_counter()
     _, best_epoch = fit_network(
