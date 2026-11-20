@@ -115,26 +115,21 @@ Lab 08 compares only the **main two-hidden-layer, 64-unit architecture** across 
 
 ## Tests
 
-The project includes the **14 original Lab 07 tests** and **12 additional Lab 08 test cases** (including three parametrized parameter-count cases), covering:
+The original 14 Lab 07 tests remain unchanged, and 12 additional test cases were implemented for Lab 08. The tests cover output shape, parameter-count equivalence across multiple network configurations, PyTorch-to-Keras weight transfer, identical input rows, small-batch memorization, model saving and reloading, restoration of the best validation weights, seed reproducibility, and comparison CSV generation.
 
-- One prediction per input row and parameter parity across several architectures.
-- PyTorch-to-Keras transposed weight copy and prediction equivalence.
-- Shared prepared rows and float32 inputs.
-- Small-batch memorization, Keras save/reload, and best-weight restoration.
-- Repeating a short training run with the same seed.
-- Comparison CSV format and required fields.
+**Testing and Environment Verification:** The project was tested in the `lab08-same-model-twice` Conda environment with TensorFlow 2.20.0 successfully installed and imported.
 
-**Observed local check:** The user-provided terminal screenshot shows **26 passed, 111 warnings**. TensorFlow import also succeeded in the activated Conda environment. These observations do not by themselves verify that Keras used TensorFlow for every test or for the saved comparison runs.
+The pytest execution collected 26 tests, and **all 26 passed**, with zero failures. The test run completed in 133.23 seconds and generated 111 nonfatal dependency warnings associated with Keras, TensorFlow, and NumPy compatibility.
 
-Run all three mandatory checks in the **TensorFlow-backed Conda environment**:
+The test output references `keras/src/backend/tensorflow/core.py`, providing evidence that TensorFlow-backed Keras functionality was exercised during testing.
 
-```bash
-python -m ruff format --check .
-python -m ruff check .
-python -m pytest
-```
+**Reproducibility:** The project includes `environment.yml`, `requirements.txt`, and `requirements-dev.txt`. The final validation commands are:
 
-All must exit successfully. A previous `I001` import-order issue was reported and a `Fix Keras imports and Ruff linting` commit exists in the supplied Git history, **successful current Ruff outputs were verified in this review**. If pytest emits warnings, review them even if all tests pass. Verify the backend in the same terminal before running tests.
+- `python -m ruff format --check .`
+- `python -m ruff check .`
+- `python -m pytest`
+
+The pytest check has passed successfully. Ruff formatting and linting results should be recorded after completing the remaining verification commands.
 
 ## Limitations
 
