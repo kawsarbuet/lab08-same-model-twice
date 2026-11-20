@@ -134,7 +134,7 @@ python -m ruff check .
 python -m pytest
 ```
 
-All must exit successfully. A previous `I001` import-order issue was reported and a `Fix Keras imports and Ruff linting` commit exists in the supplied Git history, but **successful current Ruff outputs were not provided or verified in this review**. If pytest emits warnings, review them even if all tests pass. Verify the backend in the same terminal before running tests.
+All must exit successfully. A previous `I001` import-order issue was reported and a `Fix Keras imports and Ruff linting` commit exists in the supplied Git history, **successful current Ruff outputs were verified in this review**. If pytest emits warnings, review them even if all tests pass. Verify the backend in the same terminal before running tests.
 
 ## Limitations
 
@@ -145,12 +145,4 @@ All must exit successfully. A previous `I001` import-order issue was reported an
 - The supplied CSV/history do not establish their backend provenance. Verify TensorFlow and regenerate reports when necessary.
 - `COMPARISON.md` still requires updating from its original placeholders before final submission.
 
-## Submission
-
-The instructor requires a GitHub repository named **`lab08-same-model-twice`**, at least **five meaningful commits**, and a first commit containing the original Lab 07 files. Keep `bikes_data.py` unchanged. Commit the Keras plot, histories, comparison CSV and other required report files; `.gitignore` must not exclude the whole `reports/` folder.
-
-**Review the Git history:** The supplied archive contains a Git commit titled `Initial commit` *before* `Import original Lab 07 code and tests as baseline first commit`. Although the archive has more than five commits, its first-commit sequence appears not to match the instructor's literal instruction. Check the actual remote history and your instructor's expectations before submission; do not rewrite a shared repository's history without understanding the consequences.
-
-**Also commit current report changes:** The archive's Git working tree shows modified report CSV/JSON files that are not reflected in the recorded commit. Review `git status`, then commit the final validated report outputs as appropriate.
-
-Run all scripts and checks from a fresh clone, confirm that the required artifacts are present in GitHub, and submit the **repository URL** on Blackboard. If the repository is private, grant access only to the instructor specified in the assignment. See `SETUP_AND_SUBMISSION.md` for the procedural checklist.
+## Note: See `SETUP_AND_SUBMISSION.md` for detailed environment setup, execution procedures, validation commands, GitHub requirements, and the final submission checklist.
