@@ -144,10 +144,4 @@ All commands must exit successfully. Review warnings and fix relevant issues bef
 - Reported training seconds cover the measured training phase, not setup, startup, or full weekly-job cost.
 - The archived metrics lack explicit TensorFlow-backend provenance; confirm and rerun the comparison before relying on them as TensorFlow-backed results.
 
-## Submission
-
-The assignment calls for one GitHub repository named `lab08-same-model-twice`, with at least five meaningful commits and the original Lab 07 project in the first commit. Preserve `bikes_data.py` unchanged. Commit the required Keras history and plots, comparison CSV, source, tests, environment files, and this README; do not ignore the entire `reports/` folder.
-
-The previously supplied Git archive showed an initial commit before the Lab 07 import commit, so verify the **actual remote history** and resolve any instructor concern about first-commit ordering without casually rewriting shared history. Also review `git status` for report files that have not been committed.
-
-Before submitting, **fresh-clone** the repository and verify the Conda environment, TensorFlow backend, all three checks, and all three scripts. Submit the repository URL in Blackboard. If private, grant instructor access according to the assignment instructions.
+## Note: See "SETUP_AND_SUBMISSION.md" file for detailed setup and testing procedures.
